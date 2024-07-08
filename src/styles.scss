@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url("./assets/fonts/Inter-Regular.ttf");
+}
+
+$main-font: 'Inter-Regular';
+$primary-color: #002985;
+$dark-color: #101828;
+$gray-color: #344054;
+
+html {
+    font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: $main-font;
+    font-size: 1.3rem;
+    color: $dark-color;
+    height: 100%;
+    position: relative;
+    background-color: #f9fafb;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .navbar {
+        background-color: $primary-color;
+        color: #fff;
+        .header-search {
+            width: 100%;
+        }
+        .navbar-nav {
+            .nav-link {
+                color: #fff;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .menu-items {
+        background-color: #E6ECFC;
+        .menu-item {
+            .menu-link {
+                color: #101828;
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .list-group {
+        .list-group-item {
+            text-align: left;
+            background-color: transparent !important;
+            color: #344054 !important;
+            font-size: 1.5rem;
+            border-bottom: 0;
+            cursor: pointer;
+            &.active {
+                font-weight: 600;
+            }
+        }
+    }
+    .page-content {
+        .filter-title {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #1D2939;
+        }
+    }
+    .card {
+        border: 0;
+        background-color: #fff;
+        border-radius: 5px;
+        .card-body {
+            border-top: 4px solid #F2F4F7;
+            .price {
+                color: #98A2B3;
+                b {
+                    color: #1D2939;
+                }
+            }
+            .rating {
+                border: 1px solid #EAECF0;
+                border-radius: 12px;
+                padding: 0.3rem 1rem;
+                margin-bottom: 0;
+                .fa-star {
+                    color: #FAC515;
+                }
+                .product-rate {
+                    color: #667085;
+                }
+                .stock {
+                    color: #D0D5DD;
+                }
+            }
+        }
+    }
+}

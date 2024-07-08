@@ -1,0 +1,51 @@
+<div class="px-5 page-content">
+    
+    <div class="row">
+        <div class="col-lg-2 col-12">
+            <h4 class="filter-title">Category</h4>
+            <ul class="list-group list-group-flush list-unstyled">
+                <li class="list-group-item list-group-item-action text-capitalize" 
+                *ngFor="let category of categories" (click)="filterByCategory(category)">{{category}}</li>
+            </ul>
+            <h4 class="filter-title pt-3">Brands</h4>
+            <ul class="list-group list-group-flush list-unstyled">
+                <div class="form-check" *ngFor="let brand of brands">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{brand.name}}
+                    </label>
+                    <span class="badge  badge-pill badge-secondary text-dark float-end">{{brand.qty}}</span>
+                </div>
+            </ul>
+            <h4 class="filter-title pt-3">Price Range (EGP)</h4>
+            <div class="d-flex align-items-center">
+                <span>From</span>
+                <input id="from" #from="ngModel" [(ngModel)]="fromPrice" name="from" 
+                class="mx-2 form-control w-25" type="text" placeholder="100">
+                <span>To</span>
+                <input id="to" #from="ngModel" [(ngModel)]="toPrice" name="to" 
+                class="mx-2 form-control w-25" type="text" placeholder="1000">
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+                <div class="col" *ngFor="let product of products" (click)="showProductDetails(product.id)">
+                    <div class="card">
+                        <img src="{{product.thumbnail}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-truncate">{{product.description}}</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span class="price">EGP<b class="px-2">{{product.price}}</b></span>
+                                <p class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <span class="px-2 product-rate">{{product.rating}}</span>
+                                    <span class="stock">({{product.stock}})</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
