@@ -84,21 +84,47 @@ body {
                     color: #1D2939;
                 }
             }
-            .rating {
-                border: 1px solid #EAECF0;
-                border-radius: 12px;
-                padding: 0.3rem 1rem;
-                margin-bottom: 0;
-                .fa-star {
-                    color: #FAC515;
-                }
-                .product-rate {
-                    color: #667085;
-                }
-                .stock {
-                    color: #D0D5DD;
-                }
-            }
         }
+    }
+    .rating {
+        border: 1px solid #EAECF0;
+        border-radius: 12px;
+        padding: 0.3rem 1rem;
+        margin-bottom: 0;
+        .fa-star {
+            color: #FAC515;
+        }
+        .product-rate {
+            color: #667085;
+        }
+        .stock {
+            color: #D0D5DD;
+        }
+    }
+    .product-title {
+        font-weight: 600;
+        color: $gray-color;
+    }
+    .product-desc {
+        font-size: 1.3rem;
+        color: #98A2B3;
+    }
+    .add-btn {
+        background-color: $primary-color;
+        border: 0;
+        border-radius: 4px;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+    .dropdown {
+        .dropdown-toggle {
+            background-color: #EAECF0;
+        }
+    }
+    .card-desc {
+        border: 1px solid #EAECF0;
+        padding: 1.5rem;
+        border-radius: 4px;
     }
 }

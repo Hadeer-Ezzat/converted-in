@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 @Injectable({
@@ -17,6 +17,13 @@ export class ProductService {
     {name: 'HP', qty: 0, checked: false},
     {name: 'Lenovo', qty: 0, checked: false},
   ];
+
+  private searchTermSubject = new BehaviorSubject<string>('');
+  searchTerm$ = this.searchTermSubject.asObservable();
+
+  setSearchTerm(term: string): void {
+    this.searchTermSubject.next(term);
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -40,5 +47,9 @@ export class ProductService {
 
   getProductDetails(id): Observable<any> {
     return this.http.get<any>('https://dummyjson.com/products/' + id);
+  }
+
+  getSearchProducts(searchkey): Observable<any> {
+    return this.http.get<any>('https://dummyjson.com/products/search?q=${searchKey}');
   }
 }

@@ -8,7 +8,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="d-flex header-search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input #inputSearch=ngModel class="form-control me-2" 
+            type="search" placeholder="Search" [(ngModel)]="searchkey"
+            aria-label="Search" (ngModelChange)="navigateToHome()" name="searchkey" (focusout)="searchProducts()">
         </form>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">

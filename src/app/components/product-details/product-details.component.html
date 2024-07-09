@@ -1,98 +1,99 @@
-<div class="row mx-0">
-    <div class="col-lg-4 col-12">
-        <div class="product-images d-flex">
-            <div>
-                <div *ngFor="let img of productImages">
-                    <img src="{{img}}" class="img-fluid" alt="">
+<div class="container-fluid">
+    <div class="row mx-0">
+        <div class="col-lg-4 col-12">
+            <div class="product-images d-flex">
+                <div>
+                    <div *ngFor="let img of productImages">
+                        <img src="{{img}}" class="img-fluid" alt="">
+                    </div>
                 </div>
-            </div>
-            <img src="{{productImageSrc}}" class="img-fluid" alt="">
-        </div>
-    </div>
-    <div class="col-lg-4 col-12">
-        <h4 class="product-title">{{product.title}}</h4>
-        <p>{{product.description}}</p>
-        <p class="rating">
-            <i class="fa fa-star"></i>
-            <span class="px-2 product-rate">{{product.rating}}</span>
-            <span class="stock">({{product.stock}})</span>
-        </p>
-        <span class="price">EGP<b class="px-2">{{product.price}}</b></span>
-        <div class="d-flex bg-white w-50 font-weight-normal text-capitalize flex-column my-3">
-            <span class="text-grey">free Delivery by Tomorrow</span>
-            <b>order in 6 hrs 46 min </b>
-        </div>
-        <div class="d-flex  bg-yellow w-75 text-capitalize p-2 my-3 font-small justify-content-between">
-            <span class="text-grey">Monthly payment plans from EGP 778</span>
-            <b class="btn-link text-primary"> more details </b>
-        </div>
-        <div class="d-flex  bg-white w-100 text-capitalize py-2 my-3 justify-content-between align-items-center">
-            <img src="assets/imgs/valu.png" class="w-25 h-25" />
-            <span class="font-small">pay 3 interest-free payments of EGP  9,333.33. </span>
-        </div>
-        <div class="d-flex align-items-center">
-            <div class="w-25">
-                <div class="dropdown show">
-                <a class="btn  badge-light border dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    QTY
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item">1</a>
-                    <a class="dropdown-item" >2</a>
-    
-                </div>
-                </div>
-            </div>
-            <div class="w-75">
-                <button class="text-capitalize btn-lg primary-bg text-white btn-block" (click)="addToCart()">add to cart</button>
+                <img src="{{productImageSrc}}" class="img-fluid" alt="">
             </div>
         </div>
-    </div>
-    <div class="col-lg-4 col-12">
-        <ul class="list-group">
-            <li class="list-group-item d-flex p-1 align-items-center font-small border-0 text-capitalize mb-1 bg-transparent ">
-                <span class="text-center px-2"><img src="assets/imgs/2.png" /> </span>
-                <div class="d-flex flex-column">
-                <span class="pb-1"><b>FREE RETURNS</b></span>
-                <span>Get free returns on eligible items</span>
+        <div class="col-lg-4 col-12">
+            <h3 class="product-title">{{product.title}}</h3>
+            <p class="product-desc">{{product.description}}</p>
+            <p class="rating d-inline-block">
+                <i class="fa fa-star"></i>
+                <span class="px-2 product-rate">{{product.rating}}</span>
+                <span class="stock">({{product.stock}})</span>
+            </p>
+            <span class="price d-block my-3">EGP<b class="px-2">{{product.price}}</b></span>
+            <div class="d-flex bg-white w-50 font-weight-normal text-capitalize flex-column my-3">
+                <span class="text-grey">free Delivery by Tomorrow</span>
+                <b>order in 6 hrs 46 min </b>
+            </div>
+            <div class="d-flex  bg-yellow w-75 text-capitalize p-2 my-3 font-small justify-content-between">
+                <span class="text-grey">Monthly payment plans from EGP 778</span>
+                <b class="btn-link text-primary"> more details </b>
+            </div>
+            <div class="d-flex  bg-white w-100 text-capitalize p-3 my-4 justify-content-between align-items-center">
+                <img src="assets/images/valu.png" class="w-25 h-25" />
+                <span class="font-small">pay 3 interest-free payments of EGP  9,333.33. </span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="w-25 me-3">
+                    <div class="dropdown">
+                    <a class="btn  badge-light border dropdown-toggle w-100"  role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        QTY
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item">1</a></li>
+                        <li><a class="dropdown-item">2</a></li>
+                    </ul>
+                    </div>
                 </div>
-            </li>
-            <li class="list-group-item d-flex p-1 align-items-center font-small  border-0 text-capitalize mb-1 bg-transparent ">
-                <span class="text-center px-2"><img src="assets/imgs/3.png" /> </span>
-                <div class="d-flex flex-column">
-                <span class="pb-1"><b>TRUSTED SHIPPING</b></span>
-                <span>Free shipping when you spend EGP 200 and above on express items</span>
+                <div class="w-75">
+                    <button class="text-capitalize text-white add-btn" (click)="addToCart()">add to cart</button>
                 </div>
-            </li>
-            <li class="list-group-item d-flex p-1 align-items-center font-small border-0 text-capitalize mb-1 bg-transparent  ">
-                <span class="text-center px-2"><img src="assets/imgs/1.png" /> </span>
-                <div class="d-flex flex-column">
-                <span class="pb-1"><b>SECURE SHOPPING</b></span>
-                <span>Your data is always protected</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="col-12 my-3">
-        <h5 class="text-capitalize text-dark">overview</h5>
-        <p>The PS5 console unleashes new gaming possibilities that you never anticipated.
-            Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback,
-            adaptive triggers, and 3D Audio, and an all-new generation of incredible PlayStation games.
-            Explore uncharted virtual territories and slay dragons with this sleek Sony PlayStation
-            5 gaming console. The 825GB SSD allows ultra-fast load times, while 3-D audio output produces crisp acoustics. This Sony PlayStation 5 gaming console supports haptic feedback for effortless communication in multiplayer setups, and adaptive triggers allow immersive gameplay.Integrated I/OThe custom integration of the PS5 console's systems
-            lets creators pull data from the SSD so quickly that they can design games in ways never before possible.</p>
+            </div>
         </div>
-        <div class="col-12 my-3">
-        <h5 class="text-capitalize text-dark">highlight</h5>
-        <ul>
-            <li>Lightning Speed - Harness the power of a custom CPU, GPU,
-            and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.</li>
-            <li>  Stunning Games - Marvel at incredible graphics and experience new PS5 features.</li>
-            <li>   Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
-            Enjoy smooth and fluid high-frame-rate gameplay at up to 120fps for compatible games.</li>
-            <li>  With an HDR tv, supported PS5 games display an unbelievably vibrant and lifelike range of colours
-            Enjoy a comfortable, evolved design with an iconic layout and enhanced sticks, intuitively interact with select games using the integrated motion sensor
-            Hear higher-fidelity sound effects through the built-in speaker in supported games</li>
-        </ul>
+        <div class="col-lg-4 col-12">
+            <ul class="list-group">
+                <li class="list-group-item d-flex p-1 align-items-center font-small border-0 text-capitalize mb-1 bg-transparent ">
+                    <span class="text-center px-2"><img src="assets/images/2.png" /> </span>
+                    <div class="d-flex flex-column">
+                    <span class="pb-1"><b>FREE RETURNS</b></span>
+                    <span>Get free returns on eligible items</span>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex p-1 align-items-center font-small  border-0 text-capitalize mb-1 bg-transparent ">
+                    <span class="text-center px-2"><img src="assets/images/3.png" /> </span>
+                    <div class="d-flex flex-column">
+                    <span class="pb-1"><b>TRUSTED SHIPPING</b></span>
+                    <span>Free shipping when you spend EGP 200 and above on express items</span>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex p-1 align-items-center font-small border-0 text-capitalize mb-1 bg-transparent  ">
+                    <span class="text-center px-2"><img src="assets/images/1.png" /> </span>
+                    <div class="d-flex flex-column">
+                    <span class="pb-1"><b>SECURE SHOPPING</b></span>
+                    <span>Your data is always protected</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 card-desc my-3">
+            <h3 class="text-capitalize text-dark">overview</h3>
+            <p>The PS5 console unleashes new gaming possibilities that you never anticipated.
+                Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback,
+                adaptive triggers, and 3D Audio, and an all-new generation of incredible PlayStation games.
+                Explore uncharted virtual territories and slay dragons with this sleek Sony PlayStation
+                5 gaming console. The 825GB SSD allows ultra-fast load times, while 3-D audio output produces crisp acoustics. This Sony PlayStation 5 gaming console supports haptic feedback for effortless communication in multiplayer setups, and adaptive triggers allow immersive gameplay.Integrated I/OThe custom integration of the PS5 console's systems
+                lets creators pull data from the SSD so quickly that they can design games in ways never before possible.</p>
+            </div>
+            <div class="col-12 card-desc my-3">
+            <h3 class="text-capitalize">highlight</h3>
+            <ul>
+                <li>Lightning Speed - Harness the power of a custom CPU, GPU,
+                and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.</li>
+                <li>  Stunning Games - Marvel at incredible graphics and experience new PS5 features.</li>
+                <li>   Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
+                Enjoy smooth and fluid high-frame-rate gameplay at up to 120fps for compatible games.</li>
+                <li>  With an HDR tv, supported PS5 games display an unbelievably vibrant and lifelike range of colours
+                Enjoy a comfortable, evolved design with an iconic layout and enhanced sticks, intuitively interact with select games using the integrated motion sensor
+                Hear higher-fidelity sound effects through the built-in speaker in supported games</li>
+            </ul>
+        </div>
     </div>
 </div>

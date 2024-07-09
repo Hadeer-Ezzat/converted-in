@@ -1,20 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import {Router} from '@angular/router';
+import { ProductModel } from '../models/product.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-productes-list',
   templateUrl: './productes-list.component.html',
   styleUrls: ['./productes-list.component.scss']
 })
-export class ProductesListComponent implements OnInit {
+export class ProductesListComponent implements OnInit, OnDestroy {
 
   categories: any[] = [];
-  products: any[] = [];
+  products: ProductModel[] = [];
+  filteredProducts: ProductModel[] = [];
   brands: any[] = [];
   fromPrice = null;
   toPrice = null;
   cacheDuration = 15 * 60 * 1000;
+  private searchSubscription: Subscription;
+  searchkey = '';
+  filterBrands: any[] = [];
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,6 +29,20 @@ export class ProductesListComponent implements OnInit {
       this.categories = category;
     });
     this.brands = this.productService.brands;
+    this.searchSubscription = this.productService.searchTerm$.subscribe((term) => {
+      this.searchkey = term;
+      this.filterProducts();
+    });
+  }
+
+  filterProducts(): void {
+    this.filteredProducts = this.products.filter(product =>
+      product.title.toLowerCase().includes(this.searchkey.toLowerCase())
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubscription.unsubscribe();
   }
 
   loadProducts(): void {
@@ -39,6 +59,7 @@ export class ProductesListComponent implements OnInit {
     }
     this.productService.getProducts().subscribe((data) => {
       this.products = data;
+      this.filteredProducts = data;
       this.saveProductsToLocalStorage();
     }, (error) => {
       console.error('Error fetching product data', error);
@@ -52,12 +73,21 @@ export class ProductesListComponent implements OnInit {
 
   filterByCategory(category): void {
     this.productService.getProductsByCategory(category).subscribe((productsList) => {
-      this.products = productsList.products;
+      this.filteredProducts = productsList.products;
     });
   }
 
   showProductDetails(id): void {
     this.router.navigate(['productDetails', id]);
+  }
+
+  filterProductByBrand(brandName, checkbox: HTMLInputElement, index: number): void {
+    this.productService.brands[index].checked = checkbox.checked;
+    if (this.productService.brands[index].checked) {
+      this.filterBrands.push(brandName);
+    } else {
+      this.filterBrands =  this.filterBrands.filter(e => e !== brandName);
+    }
   }
 
 }
